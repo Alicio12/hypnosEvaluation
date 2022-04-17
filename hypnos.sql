@@ -75,3 +75,5 @@ CREATE TABLE userReservations (
 INSERT INTO roles (role) VALUES ('ROLE_USER'), ('ROLE_MANAGER'), ('ROLE_ADMIN');
 
 SELECT * FROM roles;
+
+INSERT INTO userroles (userId, roleId) VALUES (1, 3);
