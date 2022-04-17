@@ -26,14 +26,13 @@ CREATE TABLE userRoles (
 INSERT INTO users
     (lastname, firstname, email, password)
 VALUES
-    (Bonnet, Dylan, bonnet.dylan11@gmail.com, !TestHypn0s#)
---hotels et association à un manager--
+    (Bonnet, Dylan, bonnet.dylan11@gmail.com, !TestHypn0s);
+
 CREATE TABLE hostels (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     adress VARCHAR(50) NOT NULL,
 );
-
 CREATE TABLE hostelManagers (
     userId INT(11) NOT NULL,
     hostelId INT(11) NOT NULL,
@@ -41,6 +40,7 @@ CREATE TABLE hostelManagers (
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (hostelId) REFERENCES hostels(id)
 );
+
 
 --chambres et association à un gérant--
 CREATE TABLE bedrooms (
