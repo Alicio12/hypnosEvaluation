@@ -30,8 +30,8 @@ VALUES
 
 CREATE TABLE hostels (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    adress VARCHAR(50) NOT NULL,
+    hostelname VARCHAR(50) NOT NULL,
+    adress VARCHAR(50) NOT NULL
 );
 CREATE TABLE hostelManagers (
     userId INT(11) NOT NULL,
@@ -45,14 +45,14 @@ CREATE TABLE hostelManagers (
 --chambres et association à un gérant--
 CREATE TABLE bedrooms (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    hostelId INT(11) NOT NULL,
+    bedroomname VARCHAR(50) NOT NULL,
+    hostelId INT(11) NOT NULL
 );
 
 CREATE TABLE bedroomManagers (
     userId INT(11) NOT NULL,
     bedroomId INT(11) NOT NULL,
-    PRIMARY KEY (userId, bedroomId)
+    PRIMARY KEY (userId, bedroomId),
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (bedroomId) REFERENCES bedrooms(id)
 );
@@ -60,12 +60,11 @@ CREATE TABLE bedroomManagers (
 --reservations et association aux clients--
 CREATE TABLE reservations (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    bedroomId INT(11) NOT NULL,
+    bedroomId INT(11) NOT NULL
 );
 
 CREATE TABLE userReservations (
-    userId INT(11) NOT NULL;
+    userId INT(11) NOT NULL,
     reservationId INT(11) NOT NULL,
     PRIMARY KEY (userId, reservationId),
     FOREIGN KEY (userId) REFERENCES users(id),
