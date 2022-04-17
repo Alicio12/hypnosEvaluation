@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+    require_once 'config.php'; // ajout connexion bdd 
+   // si la session existe pas soit si l'on est pas connecté on redirige
+    if(!isset($_SESSION['user'])){
+        header('Location:index.php');
+        die();
+    }
+
+    // On récupere les données de l'utilisateur
+    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
+    $req->execute(array($_SESSION['user']));
+    $data = $req->fetch();  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <header>
         <img id="logo" src="medias/logo-hypnos.png">
         <nav>
@@ -28,15 +43,11 @@
     <main>
         <article>
             <section>
-                <img src="hypnos1.png">
+                
             </section>
             <section>
                 <p>
-                    Hypnos est un groupe hôtelier fondé en 2004.
-                    Propriétaire de 7 établissements dans les quatre coins de l'hexagone, chacun de ces hôtels s'avère être une
-                    destination idéale pour les couples en quête d'un séjour romantique à deux.
-                    Chaque suite au design luxueux inclut des services hauts de gamme (un spa privatif notamment),
-                     de quoi plonger pleinement dans une atmosphère chic-romantique.
+                    
                 </p>
             </section>
         </article>

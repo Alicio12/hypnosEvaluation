@@ -7,7 +7,7 @@ CREATE TABLE users (
     lastname VARCHAR(50) NOT NULL,
     firstname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL
+    password TEXT(50) NOT NULL
 );
 
 CREATE TABLE roles (
