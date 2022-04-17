@@ -11,7 +11,7 @@
         $email = strtolower($email); // email transformé en minuscule
         
         // On regarde si l'utilisateur est inscrit dans la table utilisateurs
-        $check = $bdd->prepare('SELECT pseudo, email, password, token FROM users WHERE email = ?');
+        $check = $bdd->prepare('SELECT email, password, token FROM users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();

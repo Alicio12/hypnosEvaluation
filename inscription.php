@@ -1,16 +1,6 @@
 <?php 
     session_start();
-    require_once 'config.php'; // ajout connexion bdd 
-   // si la session existe pas soit si l'on est pas connecté on redirige
-    if(!isset($_SESSION['user'])){
-        header('Location:index.php');
-        die();
-    }
-
-    // On récupere les données de l'utilisateur
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
-    $req->execute(array($_SESSION['user']));
-    $data = $req->fetch();  
+    require_once 'config.php'; // ajout connexion bdd
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,13 +67,6 @@
                             </div>
                         <?php 
                         break;
-
-                        case 'pseudo_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> pseudo trop long
-                            </div>
-                        <?php 
                         case 'already':
                         ?>
                             <div class="alert alert-danger">
@@ -98,7 +81,10 @@
             <form action="inscription_traitement.php" method="post">
                 <h2 class="text-center">Inscription</h2>       
                 <div class="form-group">
-                    <input type="text" name="pseudo" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
+                    <input type="text" name="lastname" class="form-control" placeholder="Nom" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="firstname" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
