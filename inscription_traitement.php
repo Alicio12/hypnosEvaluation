@@ -12,7 +12,7 @@
         $password_retype = htmlspecialchars($_POST['password_retype']);
 
         // On vérifie si l'utilisateur existe
-        $check = $bdd->prepare('SELECT email, password FROM users WHERE email = ?');
+        $check = $pdo->prepare('SELECT email, password FROM users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -30,7 +30,7 @@
                         $password = password_hash($password, PASSWORD_BCRYPT, $cost);
 
                         // On insère dans la base de données
-                        $insert = $bdd->prepare('INSERT INTO users(lastname, firstname, email, password, token) VALUES(:lastname, :firstname, :email, :password, :token)');
+                        $insert = $pdo->prepare('INSERT INTO users(lastname, firstname, email, password, token) VALUES(:lastname, :firstname, :email, :password, :token)');
                         $insert->execute(array(
                             'lastname' => $lastname,
                             'firstname' => $firstname,

@@ -7,7 +7,8 @@ CREATE TABLE users (
     lastname VARCHAR(50) NOT NULL,
     firstname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password TEXT(50) NOT NULL
+    password TEXT(50) NOT NULL,
+    token TEXT NOT NULL
 );
 
 CREATE TABLE roles (
@@ -70,3 +71,7 @@ CREATE TABLE userReservations (
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (reservationId) REFERENCES reservations(id)
 );
+
+INSERT INTO roles (role) VALUES ('ROLE_USER'), ('ROLE_MANAGER'), ('ROLE_ADMIN');
+
+SELECT * FROM roles;

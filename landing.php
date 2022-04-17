@@ -29,12 +29,12 @@
             <img id="logo" src="medias/logo-hypnos.png">
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="etablissements.html">Etablissements</a></li> <!--admin-->
-                    <li><a href="suites.html">Suites</a></li> <!--gérants-->
-                    <li><a href="nos-suites.html">Nos suites</a></li> <!--catalogue-->
-                    <li><a href="reservations.html">Réservations</a></li>   <!--afficher?-->
-                    <li><a href="mes-reservations.html">Mes réservations</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="etablissements.php">Etablissements</a></li> <!--admin-->
+                    <li><a href="suites.php">Suites</a></li> <!--gérants-->
+                    <li><a href="nos-suites.php">Nos suites</a></li> <!--catalogue-->
+                    <li><a href="reservations.php">Réservations</a></li>   <!--afficher?-->
+                    <li><a href="mes-reservations.php">Mes réservations</a></li>
                 </ul>
             </nav>
         </header>
@@ -107,8 +107,8 @@
     </body>
     <footer>
             <ul>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cgu.html">Conditions générales d'utilisation</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="cgu.php">Conditions générales d'utilisation</a></li>
             </ul>
         </footer>
     </body>
