@@ -8,7 +8,7 @@
     }
 
     // On récupere les données de l'utilisateur
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE token = ?');
+    $req = $pdo->prepare('SELECT * FROM users WHERE token = ?');
     $req->execute(array($_SESSION['user']));
     $data = $req->fetch();  
 ?>
@@ -27,37 +27,53 @@
 <body>
     
     <header>
-        <img id="logo" src="medias/logo-hypnos.png">
-        <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="etablissements.php">Etablissements</a></li> <!--admin-->
-                <li><a href="suites.php">Suites</a></li> <!--gérants-->
-                <li><a href="nos-suites.php">Nos suites</a></li> <!--catalogue-->
-                <li><a href="reservations.php">Réservations</a></li>   <!--afficher?-->
-                <li><a href="mes-reservations.php">Mes réservations</a></li>
-            </ul>
-        </nav>
+        <?php
+            require_once 'components/header.php';
+        ?>
     </header>
 
     <main>
         <article>
             <section>
-                
+                <h2>Lorem Ipsum</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur, tortor id vehicula interdum, 
+                felis magna eleifend nisi, id interdum ligula quam non justo. Cras quis ante in ex pretium feugiat eget in orci. 
+                Suspendisse efficitur quis mi a auctor. Nulla aliquet dignissim porta. Aenean ac aliquet nulla, at feugiat arcu. 
+                Pellentesque rhoncus fermentum leo ac placerat. Sed dignissim metus sit amet cursus ullamcorper. 
+                Nulla vestibulum pulvinar sapien, eu mollis ipsum.
+                </p>
             </section>
             <section>
+                <h2>Lorem Ipsum</h2>
                 <p>
-                    
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. 
+                Suspendisse in condimentum tortor. Mauris blandit finibus massa eu sodales. 
+                Pellentesque placerat ornare purus ac pharetra. Aenean sit amet elementum dolor. 
+                Aliquam erat volutpat. Nullam iaculis ut mi quis aliquam. Ut eu ligula eget ex tincidunt commodo. 
+                Etiam consectetur elit a ipsum pulvinar pellentesque. Pellentesque id lacinia ligula. 
+                Mauris iaculis molestie nulla, in lacinia lacus laoreet vitae. Donec lacinia fermentum lacus vel mattis. 
+                Vivamus hendrerit erat eget lobortis egestas. Phasellus eu posuere urna, et suscipit velit.
+                </p>
+            </section>
+            <section>
+                <h2>Lorem Ipsum</h2>
+                <p>
+                Nulla et ultrices eros. Donec volutpat turpis nec lacus sodales, nec consequat turpis sagittis. 
+                Nam enim tortor, vehicula in ante eu, accumsan ornare enim. Vivamus suscipit et purus ut bibendum. 
+                Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                Praesent consequat ultricies elit eu vulputate. In facilisis eros lectus, rhoncus sollicitudin nulla maximus sit amet. 
+                Maecenas bibendum eros at ipsum auctor vulputate. Duis sagittis eu dui in aliquet.
                 </p>
             </section>
         </article>
     </main>
 
     <footer>
-        <ul>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="cgu.php">Conditions générales d'utilisation</a></li>
-        </ul>
+        <?php
+            require_once 'components/footer.php';
+        ?>
     </footer>
 </body>
 </html>
