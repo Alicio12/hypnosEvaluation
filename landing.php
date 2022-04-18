@@ -32,7 +32,7 @@
                         require_once 'components/header3.php';
                     } if($data['role'] === 2) {
                         require_once 'components/header2.php';
-                    } else {
+                    } if($data['role'] === 1) {
                         require_once 'components/header1.php';}
                     } catch (Exception $e) {
                         echo 'Exception reçue : ',  $e->getMessage('Veuillez vous connecter !');

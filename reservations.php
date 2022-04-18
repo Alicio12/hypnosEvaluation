@@ -31,7 +31,7 @@
             try {
                 if($data['role'] === 3) {
                     require_once 'components/header3.php';
-                } else {
+                } if($data['role'] === 2) {
                     require_once 'components/header2.php';
                 }
                 } catch (Exception $e) {
