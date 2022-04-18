@@ -44,12 +44,75 @@
     <main>
         <article>
             <section>
-                
-            </section>
-            <section>
-                <p>
-                   
-                </p>
+            <div class="login-form">
+            <?php 
+                if(isset($_GET['reg_err']))
+                {
+                    $err = htmlspecialchars($_GET['reg_err']);
+
+                    switch($err)
+                    {
+                        case 'success':
+                            ?>
+                                <div class="alert alert-danger">
+                                    <strong>Succès</strong> demande envoyée
+                                </div>
+                            <?php
+                            break;
+                        case 'email':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email non valide
+                            </div>
+                        <?php
+                        break;
+
+                        case 'email_length':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email trop long
+                            </div>
+                        <?php 
+
+                    }
+                }
+                ?>
+            
+            <form action="contact_traitement.php" method="post">
+                <h2 class="text-center">Nous contacter</h2>       
+                <div class="form-group">
+                    <input type="text" name="lastname" class="form-control" placeholder="Nom" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="firstname" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="subject" class="form-control" required="required" value="Je souhaite poser une réclamation">
+                    <label for="Je souhaite poser une réclamation">Je souhaite poser une réclamation</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="subject" class="form-control" required="required" value="Je souhaite commander un service supplémentaire">
+                    <label for="Je souhaite commander un service supplémentaire">Je souhaite commander un service supplémentaire</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="subject" class="form-control" required="required" value="Je souhaite en savoir plus sur une suite">
+                    <label for="Je souhaite en savoir plus sur une suite">Je souhaite en savoir plus sur une suite</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="subject" class="form-control" required="required" value="J’ai un souci avec cette application">
+                    <label for="J’ai un souci avec cette application">J’ai un souci avec cette application</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="message" class="form-control" placeholder="Contenu de votre message" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+                </div>   
+            </form>
+        </div>
             </section>
         </article>
     </main>

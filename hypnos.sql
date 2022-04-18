@@ -13,38 +13,27 @@ CREATE TABLE users (
 
 ALTER TABLE users ADD role INT NOT NULL DEFAULT 1;
 
-ALTER TABLE hostels ADD description VARCHAR(200) NOT NULL;
-
-DROP TABLE bedroommanagers;
-
+--hotels--
 CREATE TABLE hostels (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     hostelname VARCHAR(50) NOT NULL,
     adress VARCHAR(50) NOT NULL
 );
-CREATE TABLE hostelManagers (
-    userId INT(11) NOT NULL,
-    hostelId INT(11) NOT NULL,
-    PRIMARY KEY (userId, hostelId),
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (hostelId) REFERENCES hostels(id)
-);
 
-
+ALTER TABLE hostels ADD description VARCHAR(200) NOT NULL;
 --chambres et association à un gérant--
 CREATE TABLE bedrooms (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     bedroomname VARCHAR(50) NOT NULL,
+    picture BLOB NOT NULL,
+    descript VARCHAR(200) NOT NULL,
+    price FLOAT(11) NOT NULL,
+    pictureOne BLOB NOT NULL,
+    pictureTwo BLOB NOT NULL,
+    booking VARCHAR(100) NOT NULL,
     hostelId INT(11) NOT NULL
 );
-
-CREATE TABLE bedroomManagers (
-    userId INT(11) NOT NULL,
-    bedroomId INT(11) NOT NULL,
-    PRIMARY KEY (userId, bedroomId),
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (bedroomId) REFERENCES bedrooms(id)
-);
+DROP TABLE bedrooms;
 
 --reservations et association aux clients--
 CREATE TABLE reservations (
@@ -52,16 +41,14 @@ CREATE TABLE reservations (
     bedroomId INT(11) NOT NULL
 );
 
-CREATE TABLE userReservations (
-    userId INT(11) NOT NULL,
-    reservationId INT(11) NOT NULL,
-    PRIMARY KEY (userId, reservationId),
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (reservationId) REFERENCES reservations(id)
+--contact-
+CREATE TABLE contact (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    lastname VARCHAR(50) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    message VARCHAR(200) NOT NULL
 );
-
-INSERT INTO roles (role) VALUES ('ROLE_USER'), ('ROLE_MANAGER'), ('ROLE_ADMIN');
-
-SELECT * FROM roles;
-
-INSERT INTO userroles (userId, roleId) VALUES (1, 3);
+--retouches--
+DROP TABLE userreservations;

@@ -43,6 +43,67 @@
 
     <main>
         <article>
+        <section id="hostelForm">
+                <h2>Ajouter une suite</h2>
+                <div class="login-form">
+                    <?php 
+                        if(isset($_GET['reg_err']))
+                        {
+                            $err = htmlspecialchars($_GET['reg_err']);
+                            switch($err)
+                            {
+                                    case 'success':
+                                ?>
+                                <div class="alert alert-success">
+                                    <strong>Succès</strong> enregistrement réussi !
+                                </div>
+                                <?php
+                                    break;
+                                    case 'email_length':
+                                ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> nom trop long
+                                </div>
+                                <?php
+                                    break;
+                                    case 'description_length':
+                                ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> description trop longue
+                                </div>
+                                <?php
+                            }
+                        }
+                    ?>
+            
+                    <form action="etablissement_traitement.php" method="post">       
+                        <div class="form-group">
+                            <input type="text" name="bedroomname" class="form-control" placeholder="Nom de la suite" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="image" name="picture" class="form-control" placeholder="Photo de couverture" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="descript" class="form-control" placeholder="Description" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="price" class="form-control" placeholder="Prix" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="image" name="pictureOne" class="form-control" placeholder="Première photo de galerie" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="image" name="pictureTwo" class="form-control" placeholder="Deuxième photo de galerie" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="booking" class="form-control" placeholder="Lien Booking" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Enregistrer l'hotel</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
             <section>
                 <h3>Hypnos Hotel</h3>
                 <img id="oOP1" src="medias/oop1.jpg">

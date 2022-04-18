@@ -237,6 +237,47 @@
                 </p>
             </section>
         </article>
+        <article>
+        <section>
+                <h2>Nos demandes</h2>
+                <?php
+                $sql = "SELECT * FROM contact";
+   
+                try{
+                $stmt = $pdo->query($sql);
+                 
+                if($stmt === false){
+                    die("Erreur");
+                }
+                 
+                }catch (PDOException $e){
+                    echo $e->getMessage();
+                }
+                ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Sujet</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+                        <tr>
+                            <td><?php echo addslashes($row['lastname']); ?></td>
+                            <td><?php echo addslashes($row['firstname']); ?></td>
+                            <td><?php echo addslashes($row['email']); ?></td>
+                            <td><?php echo addslashes($row['subject']); ?></td>
+                            <td><?php echo addslashes($row['message']); ?></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </section>
+        </article>
     </main>
 
     <footer>
