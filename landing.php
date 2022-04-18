@@ -27,7 +27,16 @@
     <body>
         <header>
             <?php
-                require_once 'components/header.php';
+                try {
+                    if($data['role'] === 3) {
+                        require_once 'components/header3.php';
+                    } if($data['role'] === 2) {
+                        require_once 'components/header2.php';
+                    } else {
+                        require_once 'components/header1.php';}
+                    } catch (Exception $e) {
+                        echo 'Exception reçue : ',  $e->getMessage('Veuillez vous connecter !');
+                    }
             ?>
         </header>
         <div class="container">

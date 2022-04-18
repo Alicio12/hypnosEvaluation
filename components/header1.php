@@ -14,11 +14,8 @@
 <nav>
     <ul>
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="etablissement.php">Etablissements</a></li> <!--admin-->
         <li><a href="suitesE1.php">Hypnos Hotel</a></li>
-        <li><a href="suitesE2.php">Au bois dormant</a></li> <!--gérants-->
-        <li><a href="reservations.php">Réservations</a></li>   <!--afficher?-->
-        <li><a href="mes-reservations.php">Mes réservations</a></li>
+        <li><a href="suitesE2.php">Au bois dormant</a></li>
         <li><a href="landing.php">Mon compte</a></li>
     </ul>
 </nav>

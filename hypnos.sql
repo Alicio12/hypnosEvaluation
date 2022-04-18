@@ -8,21 +8,24 @@ CREATE TABLE users (
     firstname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     password TEXT(50) NOT NULL,
-    token TEXT NOT NULL
+    token TEXT NOT NULL,
+    role INT NOT NULL DEFAULT 1
 );
 
-CREATE TABLE roles (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-);
+ALTER TABLE users ADD role INT NOT NULL DEFAULT 1;
 
-CREATE TABLE userRoles (
-    userId INT(11) NOT NULL,
-    roleId INT(11) NOT NULL,
-    PRIMARY KEY (userId, roleId),
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (roleId) REFERENCES roles(id)
-);
+--CREATE TABLE roles (
+--    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--    name VARCHAR(50) NOT NULL,
+--);
+
+--CREATE TABLE userRoles (
+--    userId INT(11) NOT NULL,
+--    roleId INT(11) NOT NULL,
+--    PRIMARY KEY (userId, roleId),
+--    FOREIGN KEY (userId) REFERENCES users(id),
+--    FOREIGN KEY (roleId) REFERENCES roles(id)
+--);
 
 INSERT INTO users
     (lastname, firstname, email, password)
