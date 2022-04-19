@@ -64,7 +64,6 @@
                 </div>
             </div>
         </div>
-    </body>
         <footer>
             <?php
                 require_once 'components/footer.php';

@@ -47,7 +47,9 @@
                     if($data['role'] >= 2) {
                         require_once 'components/suitesE1_form.php';
                         } else {echo 'Bienvenue Au Bois Dormant !';}
-            ?>
+        ?>
+        </article>
+        <article>
             <section>
                 <h3>Au Bois Dormant</h3>
                 <img id="oOP1" src="medias/otp3.jpg">
@@ -136,7 +138,81 @@
             </section>
         </article>
         <article>
+        <section id="hostelForm">
+                <h2>Réserver une suite</h2>
+                <div class="login-form">
+                    <?php 
+                        if(isset($_GET['reg_err']))
+                        {
+                            $err = htmlspecialchars($_GET['reg_err']);
+                            switch($err)
+                            {
+                                    case 'success':
+                                ?>
+                                <div class="alert alert-success">
+                                    <strong>Succès</strong> enregistrement réussi !
+                                </div>
+                                <?php
+                                    break;
+                                    case 'email_length':
+                                ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> nom trop long
+                                </div>
+                                <?php
+                                    break;
+                                    case 'description_length':
+                                ?>
+                                <div class="alert alert-danger">
+                                    <strong>Erreur</strong> description trop longue
+                                </div>
+                                <?php
+                            }
+                        }
+                    ?>
             
+                    <form action="reserveE2.php" method="post">       
+                        <div class="form-group">
+                            <input type="text" name="lastname" class="form-control" placeholder="Nom" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="firstname" class="form-control" placeholder="Prénom" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="hostelname" class="form-control" placeholder="Au Bois Dormant" required="required" value="Au Bois Dormant">
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="bedroomname" class="form-control" required="required" value="Suite Royale">
+                            <label for="Suite Royale">Suite Royale</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="bedroomname" class="form-control" required="required" value="Suite Impériale">
+                            <label for="Suite Impériale">Suite Impériale</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" name="bedroomname" class="form-control" required="required" value="Suite Présidentielle">
+                            <label for="Suite Présidentielle">Suite Présidentielle</label>
+                        </div>
+                        <?php
+                            $mindate = date("Y-m-d");
+                        ?>
+                        <div>
+                            <label>Date d'arrivée</label>
+                            <input type="date" required id="res_date" name="datearrived" value="<?=date("Y-m-d")?>">
+                        </div>
+                        <div>
+                            <label>Date de départ</label>
+                            <input type="date" required id="res_date" name="datedeparture" value="<?=date("Y-m-d")?>">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Enregistrer la réservation</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </article>
     </main>
 
