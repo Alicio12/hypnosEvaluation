@@ -43,22 +43,100 @@
 
     <main>
         <article>
+        <?php
+                    if($data['role'] >= 2) {
+                        require_once 'components/suitesE1_form.php';
+                        } else {echo 'Bienvenue Au Bois Dormant !';}
+            ?>
             <section>
-                <h3>Au bois dormant</h3>
-                <img id="oTP1" src="medias/otp1.jpg">
-                <p>Adresse : 8 rue du 8 Mai 1945, 62140 Huby-Saint-Leu, France</p>
-                <p>Les chambres comprennent un coin salon avec une télévision ainsi qu'une salle de bains privative pourvue d'un sèche-cheveux, 
-                d'articles de toilette gratuits et d'une douche. Vous disposerez d'un micro-ondes, d'un réfrigérateur et d'une bouilloire.</p>
-                <p>Réservation via Booking : <a href="https://www.booking.com/hotel/fr/au-bois-dormant-huby-saint-leu.fr.html?aid=318615&label=New_French_FR_FR_21427174465-Pk3jEylX2FWP*n3y4lDZiQS84604474585%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg&sid=338ebb986e5869eb9d7e9dc90875713e&dest_id=-1432014&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=4&hpos=4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1650115521&srpvid=bb7a5e5ff9780015&type=total&ucfs=1&activeTab=main">Au Bois Dormant</a></p>
-                <img id="oTP2" src="medias/otp2.jpg">
-                <img id="oTP3" src="medias/otp3.jpg">
-                <img id="oTP4" src="medias/otp4.jpg">
+                <h3>Au Bois Dormant</h3>
+                <img id="oOP1" src="medias/otp3.jpg">
+                <p>Adresse : 22 Rue D'arras, 62140 Hesdin, France</p>
+                <p>L'Hypnos Hotel est situé au cœur d'Hesdin, dans le Nord Pas-de-Calais. 
+                Il propose un hébergement avec une salle de bains privative, un jardin et une connexion Wi-Fi gratuite.</p>
             </section>
+        </article>
+        <article>
             <section>
-                <p>
-                    
+                <h2>Nos suites</h2>
+                <?php
+                $sql = "SELECT * FROM bedrooms WHERE hostelId = '4'";
+   
+                try{
+                $stmt = $pdo->query($sql);
+                 
+                if($stmt === false){
+                    die("Erreur");
+                }
+                 
+                }catch (PDOException $e){
+                    echo $e->getMessage();
+                }
+                ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Photo</th>
+                            <th>Description</th>
+                            <th>Prix fixe à la nuit</th>
+                            <th>Photos</th>
+                            <th>Photos</th>
+                            <th>Lien de réservation booking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+                        <tr>
+                            <td><?php echo addslashes($row['bedroomname']); ?></td>
+                            <td><?php echo addslashes($row['picture']); ?></td>
+                            <td><?php echo addslashes($row['descript']); ?></td>
+                            <td><?php echo addslashes($row['price']); ?></td>
+                            <td><?php echo addslashes($row['prictureOne']); ?></td>
+                            <td><?php echo addslashes($row['prictureTwo']); ?></td>
+                            <td><a href="<?php echo addslashes($row['booking']); ?>">Lien de réservation Booking</a></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+        <article>
+            <section>
+                <h3>Suite Royale</h3>
+                <img src="medias/otp4.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu interdum ligula. 
+                    In hac habitasse platea dictumst. In porta leo libero, ut convallis diam maximus at. 
+                    Sed pretium, nibh sed bibendum eleifend, risus nisl volutpat sapien, nec tempor ligula felis ut est.
                 </p>
+                <p>Prix par nuit: 129 euros.</p>
+                <img src="medias/jacuzzi.jpg">
+                <img src="medias/petitdej.jpg">
+                <a href="https://booking.com">Lien de réservation via Booking</a>
+                <h3>Suite Impériale</h3>
+                <img src="medias/oop4.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu interdum ligula. 
+                    In hac habitasse platea dictumst. In porta leo libero, ut convallis diam maximus at. 
+                    Sed pretium, nibh sed bibendum eleifend, risus nisl volutpat sapien, nec tempor ligula felis ut est.
+                </p>
+                <p>Prix par nuit: 129 euros.</p>
+                <img src="medias/jacuzzi.jpg">
+                <img src="medias/petitdej.jpg">
+                <a href="https://booking.com">Lien de réservation via Booking</a>
+                <h3>Suite Présidentielle</h3>
+                <img src="medias/otp2.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu interdum ligula. 
+                    In hac habitasse platea dictumst. In porta leo libero, ut convallis diam maximus at. 
+                    Sed pretium, nibh sed bibendum eleifend, risus nisl volutpat sapien, nec tempor ligula felis ut est.
+                </p>
+                <p>Prix par nuit: 129 euros.</p>
+                <img src="medias/jacuzzi.jpg">
+                <img src="medias/petitdej.jpg">
+                <a href="https://booking.com">Lien de réservation via Booking</a>
             </section>
+        </article>
+        <article>
+            
         </article>
     </main>
 
