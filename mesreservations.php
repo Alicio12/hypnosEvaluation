@@ -64,7 +64,6 @@
                         <th>Email</th>
                         <th>Hotel</th>
                         <th>Suite</th>
-                        <th>Hotel</th>
                         <th>Date d'arrivée</th>
                         <th>Date de départ</th>
                         <th>Prix</th>
