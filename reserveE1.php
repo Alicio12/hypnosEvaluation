@@ -12,7 +12,7 @@
         $bedroomname = htmlspecialchars($_POST['bedroomname']);
         $datearrived = htmlspecialchars($_POST['datearrived']);
         $datedeparture = htmlspecialchars($_POST['datedeparture']);
-        
+        $deltadate = $datedeparture - $datearrived;
         
             if(strlen($email) <= 50){ // On verifie que la longueur du mail <= 50
                         // On insère dans la base de données
@@ -25,7 +25,7 @@
                             'bedroomname' => $bedroomname,
                             'datearrived' => $datearrived,
                             'datedeparture' => $datedeparture,
-                            'price' => ($datedeparture-$datearrived)*129
+                            'price' => $deltadate * 129
                         ));
                         // On redirige avec le message de succès
                         header('Location:suitesE1.php?reg_err=success');
