@@ -1,6 +1,3 @@
---création de la base de données--
-CREATE DATABASE hypnosevaluation;
-
 --association de rôles aux utilisateurs--
 CREATE TABLE users (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -8,19 +5,17 @@ CREATE TABLE users (
     firstname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     password TEXT(50) NOT NULL,
-    token TEXT NOT NULL
+    token TEXT NOT NULL,
+    role INT NOT NULL DEFAULT 1
 );
-
-ALTER TABLE users ADD role INT NOT NULL DEFAULT 1;
-
 --hotels--
 CREATE TABLE hostels (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     hostelname VARCHAR(50) NOT NULL,
-    adress VARCHAR(50) NOT NULL
+    adress VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    description VARCHAR(200) NOT NULL
 );
-
-ALTER TABLE hostels ADD description VARCHAR(200) NOT NULL;
 --chambres et association à un gérant--
 CREATE TABLE bedrooms (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -33,8 +28,6 @@ CREATE TABLE bedrooms (
     booking VARCHAR(100) NOT NULL,
     hostelId INT(11) NOT NULL
 );
-DROP TABLE bedrooms;
-
 --reservations et association aux clients--
 CREATE TABLE reservations (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -56,5 +49,3 @@ CREATE TABLE contact (
     subject VARCHAR(100) NOT NULL,
     message VARCHAR(200) NOT NULL
 );
---retouches--
-DROP TABLE userreservations;
