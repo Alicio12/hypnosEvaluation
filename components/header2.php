@@ -16,7 +16,6 @@
         <li><a href="index.php">Accueil</a></li>
         <li><a href="suitesE1.php">Hypnos Hotel</a></li>
         <li><a href="suitesE2.php">Au bois dormant</a></li> <!--gérants-->
-        <li><a href="reservation.php">Réservations</a></li>   <!--afficher?-->
         <li><a href="landing.php">Mon compte</a></li>
         <li><a href="mesreservations.php">Mes réservations</a></li>
     </ul>
