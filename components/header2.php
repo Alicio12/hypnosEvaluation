@@ -18,5 +18,6 @@
         <li><a href="suitesE2.php">Au bois dormant</a></li> <!--gérants-->
         <li><a href="landing.php">Mon compte</a></li>
         <li><a href="mesreservations.php">Mes réservations</a></li>
+        <li><a href="reservation.php">Réservations clients</a></li>
     </ul>
 </nav>
