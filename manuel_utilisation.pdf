@@ -1,0 +1,21 @@
+Manuel d'utilisation :
+Tout d'abord pour vous connecter vous pouvez soit vous inscire en tant qu'utilisateur et donc en avoir le rôle pour découvrir cette prmière fonctionnalité
+reposant sur l'inscription/connexion/déconnexion et la gestion des rôles. Suivant quel profil vous utilisez: admin, gérant ou utilisateur vous aurez accès
+ou non à des fonctionnalités à commencer par le menu qui propose ou non certaines pages.
+
+Vous pourrez ensuite en tant qu'administrateur accéder à la page établissements permettant d'ajouter des gérants, donc des utilisateurs de rôle 2, 
+vous pourrez avoir accès à la liste de tous les utilisateurs inscrits, voir les réclamations des clients, ajouter de nouveaux hôtels et voir la liste des hôtels
+déjà enregistrés. Vous aurez évidemment accès à toutes les autres fonctionnalités.
+
+Via le profil gérant vous n'aurez pas accès aux fonctionnalités propres à l'administrateur, vous pourrez cependant accéder à un formulaire d'ajout de suite au
+sein des hôtels, les ajouts de suites se feront sur les pages de leur hôtel respectif, soit Hypnos Hotel, soit Au Bois Dormant.
+
+Enfin les utilisateurs simples pourront réserver une suite, voir les catalogues des deux hôtels inscrits de façon fixe, contacter le support, et évidemment
+s'inscrire, se connecter et se déconnecter.
+
+Je reconnais directement ne pas avoir eu le temps de régler le bug concernant le réservation des suites, la fonctionnalité n'est donc pas disponible réellement.
+J'ai tenté plusieurs méthodes, mais je n'arrivais pas à prendre en charge les photos et n'est pas voulu faire un formulaire sans car ce n'aurai que la réplique
+de celui d'ajout d'hôtel. D'autres petits bugs persistent mais sont d'après moi secondaires.
+Dernière chose que je n'ai malheureusement pas eu le temps de mettre en place, le cross-plateform, j'ai l'habitude certes déconseiller mais qui me correspond
+généralement mieux de mettre en place mes @medias querries en place à la fin lorsque je module mon css. L'application ne pourra donc petre tester que sur 
+ordinateur et je m'en excuse.
